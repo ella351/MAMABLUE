@@ -114,4 +114,8 @@
         margin-bottom: 15px;
     }
 </style>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 9869a01 (Your commit message)
