@@ -12,27 +12,57 @@ class CountryController extends Controller
         $countries = Country::all();
         return view('countries.countries', compact('countries'));
     }
-}
-=======
-use Illuminate\Http\Request;
-use App\Models\Country;
 
-class CountryController extends Controller
-{
-    // Display all countries
-    public function index()
+    // 👉 Show the form to create a new country
+    public function create()
     {
-        $countries = Country::all(); 
-        return view('countries.countries', compact('countries'));
+        return view('countries.create');
     }
 
-    // Delete a country
-    public function destroy($id)
+    // 👉 Save new country to database
+    public function store(Request $request)
     {
-        $country = Country::findOrFail($id); 
-        $country->delete(); 
+        $request->validate([
+            'name' => 'required',
+            'code' => 'required|max:3',
+            'continent' => 'required',
+            'population' => 'required|numeric',
+        ]);
 
-        return redirect()->back()->with('success', 'Country deleted successfully!');
+        Country::create($request->all());
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country added successfully.');
+    }
+
+    // 👉 Show the form to edit an existing country
+    public function edit(Country $country)
+    {
+        return view('countries.edit', compact('country'));
+    }
+
+    // 👉 Update country in database
+    public function update(Request $request, Country $country)
+    {
+        $request->validate([
+            'name' => 'required',
+            'code' => 'required|max:3',
+            'continent' => 'required',
+            'population' => 'required|numeric',
+        ]);
+
+        $country->update($request->all());
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country updated successfully.');
+    }
+
+    // 👉 Delete a country
+    public function destroy(Country $country)
+    {
+        $country->delete();
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country deleted successfully.');
     }
 }
->>>>>>> 9869a01 (Your commit message)
