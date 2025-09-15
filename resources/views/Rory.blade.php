@@ -146,11 +146,5 @@
         </ul>
       </div>
     </div>
-  </div>
-</body>
-</html>
-<<<<<<< HEAD
+</div>
 @endsection
-=======
-@endsection
->>>>>>> 9869a01 (Your commit message)

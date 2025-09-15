@@ -8,16 +8,22 @@
 </head>
 <body class="p-4 bg-light">
     <div class="container">
+<<<<<<< HEAD
         <!-- Title -->
         <h1 class="mb-4 text-center">Countries</h1>
 
         <!-- Success Message -->
+=======
+        <h1 class="mb-4 text-center">Countries ({{ $countries->count() }})</h1>
+
+>>>>>>> 9869a01e7514b1db08f7ba7b364e762bf5e67bfc
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
+<<<<<<< HEAD
         <!-- Add Country Button -->
         <div class="d-flex justify-content-end mb-3">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCountryModal">
@@ -26,6 +32,8 @@
         </div>
 
         <!-- Countries Table -->
+=======
+>>>>>>> 9869a01e7514b1db08f7ba7b364e762bf5e67bfc
         <table class="table table-striped table-bordered shadow-sm">
             <thead class="table-dark">
                 <tr>
@@ -45,6 +53,7 @@
                     <td>{{ $country->code }}</td>
                     <td>{{ $country->continent }}</td>
                     <td>{{ number_format($country->population) }}</td>
+<<<<<<< HEAD
                     <td class="d-flex gap-2">
                         <!-- Edit Button -->
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editCountryModal{{ $country->id }}">
@@ -52,6 +61,9 @@
                         </button>
 
                         <!-- Delete Button -->
+=======
+                    <td>
+>>>>>>> 9869a01e7514b1db08f7ba7b364e762bf5e67bfc
                         <form action="{{ route('countries.destroy', $country->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this country?')">
                             @csrf
                             @method('DELETE')
@@ -59,6 +71,7 @@
                         </form>
                     </td>
                 </tr>
+<<<<<<< HEAD
 
                 <!-- Edit Country Modal -->
                 <div class="modal fade" id="editCountryModal{{ $country->id }}" tabindex="-1" aria-labelledby="editCountryLabel{{ $country->id }}" aria-hidden="true">
@@ -97,10 +110,13 @@
                     </div>
                   </div>
                 </div>
+=======
+>>>>>>> 9869a01e7514b1db08f7ba7b364e762bf5e67bfc
                 @endforeach
             </tbody>
         </table>
     </div>
+<<<<<<< HEAD
 
     <!-- Add Country Modal -->
     <div class="modal fade" id="addCountryModal" tabindex="-1" aria-labelledby="addCountryLabel" aria-hidden="true">
@@ -141,5 +157,7 @@
 
     <!-- Bootstrap JS (required for modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+=======
+>>>>>>> 9869a01e7514b1db08f7ba7b364e762bf5e67bfc
 </body>
 </html>
